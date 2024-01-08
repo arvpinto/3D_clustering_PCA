@@ -7,7 +7,7 @@
 
 
 <br>
-<h2> <p align="center"> <b>I - Trajectory correction and PCA vector extraction</b> </p></h2>
+<h2> <p align="center"> <b>I - Trajectory correction and extraction of the PCA vectors</b> </p></h2>
 
 <br/>
 
@@ -23,6 +23,16 @@ echo 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -
 
 # Fit the trajectory relative to the previously created selection.
 echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -fit rot+trans -o trajectory_fit.xtc    
+```
+
+Then we extract the PCA vectors from the corrected trajectory:
+
+```js
+# Covariance analysis to extract the eigenvectors from the cMD trajectory
+echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eigenvec.trr -last 3 -n act.ndx
+
+# Print the resulting PCA vectors to a pdb file
+echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -v eigenvec.trr -3d pc.pdb -last 3 -n act.ndx
 ```
 
 ---
