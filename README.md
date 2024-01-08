@@ -52,10 +52,12 @@ Now we run the pca_dbscan_gmm.py script to obtain the clusters and the represent
 The pca_dbscan_gmm.py script has the following usage:
 
 ```js
-python script.py <data_file> <eps> <min_samples> <n_components>
+python pca_dbscan_gmm.py <data_file> <eps> <min_samples> <n_components>
 ```
 The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples\> define the parameters for outlier identification using the DBSCAN method, and \<n_components\> defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
-
+Initially try different \<eps\> and \<min_samples\> values to see which and how many frames are being identified as outliers.
+Once you have an adequate number of outliers, try different \<n_components\> values to identify which number of clusters is more suitable.
+Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. 
 <br/>
 
 
@@ -67,13 +69,20 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 </div>
 <br/>
 
-Initially try different \<eps\> and \<min_samples\> values to see which and how many frames are being identified as outliers.
-Once you have an adequate number of outliers, try different \<n_components\> values to identify which number of clusters is more suitable.
-Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. 
+A clusters.csv file is outputed with the cluster numbers that each frame corresponds to (outliers belong in the -1 cluster).
+A frames.dat is ouputed with the top 5 frames that are closest to the highest desnity point of each cluster.
 
+<br>
+<h2> <p align="center"> <b>III - Frame extraction</b> </p></h2>
 
+<br/>
 
----
+Use the extract_highdens.py script to extract the identified frames from the trajectory.
+The extract_highdens.py script usage follows:
+
+```js
+python extract_highdens.py <xtc_file> <gro_file> <cluster_indices_file> <output_prefix>
+```
 
 
 
