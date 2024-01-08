@@ -37,6 +37,23 @@ echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eig
 echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -v eigenvec.trr -3d pc.pdb -last 3 -n act.ndx
 ```
 
+Clean up the pc.pdb file to include only the PCA vectors:
+```js
+cat pc.pdb | head -n -2 | tail -n +5 | awk '{print $6,$7,$8}' > temp && mv temp pc.pdb
+```
+
+<br/>
+<h2> <p align="center"> <b>II - Clustering of PCA vectors and identification of representative frames</b> </p></h2>
+
+<br/>
+
+Now we run the pca_dbscan_gmm.py script to obtain the clusters and the representative frames.
+The pca_dbscan_gmm.py script has the following usage:
+
+```js
+python script.py <data_file> <eps> <min_samples> <n_components>
+```
+The <data_file> should be the processed pc.pdb file, <eps> and <min_samples> define the parameters for outlier identification using the DBSCAN method, and <n_components> defines the number of clusters in the Gaussian Mixture Models clustering.
 ---
 
 
