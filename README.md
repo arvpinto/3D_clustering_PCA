@@ -60,7 +60,7 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 
 
 <div align="center">
-    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/127.0.0.1.html" width="1600" height="1000"></iframe>
+    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/127.0.0.1.html" width="1904" height="894"></iframe>
 </div>
 <div align="center">
     <img src="plot_II.png">
@@ -70,7 +70,6 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 Initially try different \<eps\> and \<min_samples\> values to see which and how many frames are being identified as outliers.
 Once you have an adequate number of outliers, try different \<n_components\> values to identify which number of clusters is more suitable.
 Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. 
-
 
 
 
