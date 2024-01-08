@@ -36,6 +36,7 @@ echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eig
 # Print the resulting PCA vectors to a pdb file
 echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -v eigenvec.trr -3d pc.pdb -last 3 -n act.ndx
 ```
+<br/>
 
 Clean up the pc.pdb file to include only the PCA vectors:
 ```js
