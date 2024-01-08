@@ -48,7 +48,7 @@ cat pc.pdb | head -n -2 | tail -n +5 | awk '{print $6,$7,$8}' > temp && mv temp 
 
 <br/>
 
-Now we run the pca_dbscan_gmm.py script to obtain the clusters and the representative frames.
+Now we run the <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" target="_blank">pca_dbscan_gmm.py</a> script to obtain the clusters and the representative frames.
 The pca_dbscan_gmm.py script has the following usage:
 
 ```js
