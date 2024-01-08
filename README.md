@@ -60,7 +60,7 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 
 
 <div align="center">
-    <script src="https://arvpinto.github.io/3D_clustering_PCA/127.0.0.1.html"></script>
+    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/127.0.0.1.html" width="800" height="600"></iframe>
 </div>
 <div align="center">
     <img src="plot_II.png">
