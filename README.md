@@ -60,7 +60,7 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 
 
 <div align="center">
-    <img src="127.0.0.1.html">
+    <iframe src="https://gist.github.com/377bbeff7d93324ef096ab62298f06df" width="600" height="400"></iframe>
 </div>
 <div align="center">
     <img src="plot_II.png">
