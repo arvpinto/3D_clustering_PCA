@@ -49,7 +49,7 @@ cat pc.pdb | head -n -2 | tail -n +5 | awk '{print $6,$7,$8}' > temp && mv temp 
 <br/>
 
 Now we run the <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" target="_blank">pca_dbscan_gmm.py</a> script to obtain the clusters and the representative frames.
-The pca_dbscan_gmm.py script has the following usage:
+The <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" target="_blank">pca_dbscan_gmm.py</a> script has the following usage:
 
 ```js
 python pca_dbscan_gmm.py <data_file> <eps> <min_samples> <n_components>
@@ -77,8 +77,8 @@ A frames.dat is ouputed with the top 5 frames that are closest to the highest de
 
 <br/>
 
-Use the extract_highdens.py script to extract the identified frames from the trajectory.
-The extract_highdens.py script usage follows:
+Use the <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.py" target="_blank">extract_highdens.py</a> script to extract the identified frames from the trajectory.
+The <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.py" target="_blank">extract_highdens.py</a> script usage follows:
 
 ```js
 python extract_highdens.py <xtc_file> <gro_file> <cluster_indices_file> <output_prefix>
