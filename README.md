@@ -17,7 +17,7 @@ We start by correcting the cMD trajectory using trjconv (this assumes a octahedr
 gmx make_ndx -f ref.gro -o act.ndx
 
 `# Correct the PBC of the octahedron box.`
-echo 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -o trajectory_pbc.xtc
+echo 1 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -o trajectory_pbc.xtc
 
 `# Fit the trajectory relative to the previously created selection.`
 echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -fit rot+trans -o trajectory_fit.xtc    
