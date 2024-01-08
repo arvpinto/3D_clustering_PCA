@@ -54,10 +54,10 @@ The pca_dbscan_gmm.py script has the following usage:
 ```js
 python pca_dbscan_gmm.py <data_file> <eps> <min_samples> <n_components>
 ```
-The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples\> define the parameters for outlier identification using the DBSCAN method, and \<n_components\> defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
+<p align="justify">The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples\> define the parameters for outlier identification using the DBSCAN method, and \<n_components\> defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
 Initially try different \<eps\> and \<min_samples\> values to see which and how many frames are being identified as outliers.
 Once you have an adequate number of outliers, try different \<n_components\> values to identify which number of clusters is more suitable.
-Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. 
+Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. </p>
 <br/>
 
 
