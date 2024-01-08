@@ -1,6 +1,6 @@
-<p align="justify"><b>This tutorial aims to produce a density-based clustering analysis of a cMD trajectory, employing as features the first 3 PCA vectors of a protein backbone that are obtained from the GROMACS tools. </b></p>
+<p align="justify"><b>This tutorial aims to produce a density-based clustering analysis of a cMD trajectory, employing as features the first 3 PCA vectors that are obtained from the GROMACS tools. </b></p>
 
-<p align="justify"> It requires a cMD *xtc trajectory file, a *tpr and a *gro file. In the first part, the trajectory is corrected with gmx trjconv and the PCA vectors are calculated. Then, the pca_dbscan_gmm.py uses DBSCAN to identify outliers and performs a clustering analysis with the Gaussian mixture models. Through a kernel density-based method, the script is also able to identify the PCA vectors that correspond to the highest density of frames in a cluster, and output the 5 frames that are closest to the identified point. Then, the frames are extracted from the trajectory to separate *.gro files. </p>
+<p align="justify"> It requires a cMD *xtc trajectory file, a *tpr and a *gro file. In the first part, the trajectory is corrected with gmx trjconv and the PCA vectors are calculated for the protein mainchain. Then, the pca_dbscan_gmm.py uses DBSCAN to identify outliers and performs a clustering analysis with the Gaussian mixture models. Through a kernel density-based method, the script is also able to identify the PCA vectors that correspond to the highest density of frames in a cluster, and output the 5 frames that are closest to the identified point. Then, the frames are extracted from the trajectory to separate *.gro files. </p>
 
 ---
 
@@ -9,18 +9,18 @@
 
 <br/>
 
-We start by correcting the cMD trajectory using trjconv (this assumes a octahedron box, change the routine according to your box type):
+We start by correcting the cMD trajectory using trjconv (this assumes a truncated octahedron box, change the routine according to your box type):
 
 ```js
 `# Make a *ndx selection with the region of interest for the analysis.`
-`# In this case we can use the heavy atoms of all protein residues within 10 angstrom from the catalytic residues.`
+`# In this case we can use the mainchain of protein residues within 10 angstrom from the catalytic residues.`
 gmx make_ndx -f ref.gro -o act.ndx
 
 `# Correct the PBC of the octahedron box.`
 echo 1 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -o trajectory_pbc.xtc
 
 `# Fit the trajectory relative to the previously created selection.`
-echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -fit rot+trans -o trajectory_fit.xtc    
+echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -n act.ndx -fit rot+trans -o trajectory_fit.xtc    
 ```
 
 <br/>
@@ -29,10 +29,10 @@ Then we extract the PCA vectors from the corrected trajectory:
 
 ```js
 `# Covariance analysis to extract the eigenvectors from the cMD trajectory.`
-echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eigenvec.trr -last 3 -n act.ndx
+echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eigenvec.trr -last 3 
 
 `# Print the resulting PCA vectors to a pdb file.`
-echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -v eigenvec.trr -3d pc.pdb -last 3 -n act.ndx
+echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -n act.ndx -v eigenvec.trr -3d pc.pdb -last 3 
 ```
 <br/>
 
