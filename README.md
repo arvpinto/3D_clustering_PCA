@@ -38,7 +38,7 @@ echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -n act.ndx -v eigenvec.
 
 Clean up the pc.pdb file to include only the PCA vectors:
 ```js
-cat pc.pdb | head -n -2 | tail -n +5 | awk '{print $6,$7,$8}' > temp && mv temp pc.pdb
+cat pc.pdb | head -n -2 | tail -n +6 | awk '{print $6,$7,$8}' > temp && mv temp pc.pdb
 ```
 
 <br/>
