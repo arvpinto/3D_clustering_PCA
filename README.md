@@ -59,8 +59,9 @@ The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples
 <br/>
 
 
-{% include 127.0.0.1.html %}
-
+<div align="center">
+    <img src="127.0.0.1.html">
+</div>
 <div align="center">
     <img src="plot_II.png">
 </div>
