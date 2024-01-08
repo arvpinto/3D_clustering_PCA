@@ -1,9 +1,8 @@
-<p align="justify"><b>This tutorial aims to cluster frames in cMD trajectories according to protein PCA vectors obtained with GROMACS analysis tools. </b></p>
+<p align="justify"><b>This tutorial aims to produce a density-based clustering analysis of a cMD trajectory, employing as features the first 3 PCA vectors of a protein backbone that are obtained from the GROMACS tools. </b></p>
 
-<p align="justify"> It requires a cMD *xtc trajectory file, a *tpr and a *gro file. In the first part, the trajectory is corrected with gmx trjconv and the PCA vectors are calculated. Then, the pca_dbscan_gmm.py uses DBSCAN to identify outliers and performs a clustering analysis with Gaussian mixture models. The script is also able to identify the PCA vectors that correspond to the highest density of frames in a cluster, through a kernel density-based method, and output the 5 frames that are closest to the identified point. In the second part, the frames are extracted from the trajectory to separate *.gro files. </p>
+<p align="justify"> It requires a cMD *xtc trajectory file, a *tpr and a *gro file. In the first part, the trajectory is corrected with gmx trjconv and the PCA vectors are calculated. Then, the pca_dbscan_gmm.py uses DBSCAN to identify outliers and performs a clustering analysis with the Gaussian mixture models. Through a kernel density-based method, the script is also able to identify the PCA vectors that correspond to the highest density of frames in a cluster, and output the 5 frames that are closest to the identified point. Then, the frames are extracted from the trajectory to separate *.gro files. </p>
 
 ---
-
 
 <br>
 <h2> <p align="center"> <b>I - Trajectory correction and extraction of the PCA vectors</b> </p></h2>
@@ -69,7 +68,7 @@ Also take a look at the kernel density plots to see if the density distributions
 <br/>
 
 A clusters.csv file is outputed with the cluster numbers that each frame corresponds to (outliers belong in the -1 cluster).
-A frames.dat is ouputed with the top 5 frames that are closest to the highest desnity point of each cluster.
+A frames.dat is ouputed with the top 5 frames that are closest to the highest density point of each cluster.
 
 <br>
 <h2> <p align="center"> <b>III - Frame extraction</b> </p></h2>
