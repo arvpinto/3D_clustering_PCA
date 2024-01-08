@@ -57,6 +57,10 @@ python script.py <data_file> <eps> <min_samples> <n_components>
 The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples\> define the parameters for outlier identification using the DBSCAN method, and \<n_components\> defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
 
 <br/>
+<div align="center">
+    <img src="plot_II.png">
+</div>
+<br/>
 
 Initially try different \<eps\> and \<min_samples\> values to see which and how many frames are being identified as outliers.
 Once you have an adequate number of outliers, try different \<n_components\> values to identify which number of clusters is more suitable.
