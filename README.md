@@ -54,7 +54,7 @@ The pca_dbscan_gmm.py script has the following usage:
 ```js
 python script.py <data_file> <eps> <min_samples> <n_components>
 ```
-The <data_file> should be the processed pc.pdb file, <eps> and <min_samples> define the parameters for outlier identification using the DBSCAN method, and <n_components> defines the number of clusters in the Gaussian Mixture Models clustering.
+The \<data_file\> should be the processed pc.pdb file, \<eps\> and \<min_samples\> define the parameters for outlier identification using the DBSCAN method, and \<n_components\> defines the number of clusters in the Gaussian Mixture Models clustering.
 ---
 
 
