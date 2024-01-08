@@ -14,7 +14,8 @@
 We start by correcting the cMD trajectory using trjconv (this assumes a octahedron box, change the routine according to your box type):
 
 ```js
-# Make a *ndx selection with the region of interest for the analysis. In this case we can use the heavy atoms of all protein residues within 10 angstrom from the catalytic residues.
+# Make a *ndx selection with the region of interest for the analysis.
+# In this case we can use the heavy atoms of all protein residues within 10 angstrom from the catalytic residues.
 gmx make_ndx -f ref.gro -o act.ndx
 
 # Correct the PBC of the octahedron box  
