@@ -25,6 +25,8 @@ echo 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -
 echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -fit rot+trans -o trajectory_fit.xtc    
 ```
 
+<br/>
+
 Then we extract the PCA vectors from the corrected trajectory:
 
 ```js
