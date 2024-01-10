@@ -58,10 +58,25 @@ Once you have an adequate number of outliers, try different &lt;n_components&gt;
 Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. </p>
 <br/>
 
+```js
+Number of DBSCAN outliers: 29
+Total number of clusters (GMM): 4
+Cluster 0: 595 frames
+Top 5 closest frames for Cluster 0: [ 578  721  681  647 1544]
+Cluster 1: 1198 frames
+Top 5 closest frames for Cluster 1: [1232 1380 1293 1919 1708]
+Cluster 2: 463 frames
+Top 5 closest frames for Cluster 2: [114  69  68  64  67]
+Cluster 3: 215 frames
+Top 5 closest frames for Cluster 3: [2015 2076 2050 2052 2054]
+```
+
+<br>
 
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     <iframe src="https://arvpinto.github.io/3D_clustering_PCA/3d_plot.html" width="1904" height="894"></iframe>
 </div>
+<br>
 <div align="center">
     <img src="kernel_density_plot.png">
 </div>
