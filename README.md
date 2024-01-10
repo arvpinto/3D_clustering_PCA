@@ -60,10 +60,10 @@ Also take a look at the kernel density plots to see if the density distributions
 
 
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/127.0.0.1.html" width="1904" height="894"></iframe>
+    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/3d_plot.html" width="1904" height="894"></iframe>
 </div>
 <div align="center">
-    <img src="plot_II.png">
+    <img src="kernel_density_plot.png">
 </div>
 <br/>
 
