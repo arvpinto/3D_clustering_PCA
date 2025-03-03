@@ -70,14 +70,18 @@ Top 5 closest frames for Cluster 2: [114  69  68  64  67]
 Cluster 3: 215 frames
 Top 5 closest frames for Cluster 3: [2015 2076 2050 2052 2054]
 ```
-
 <br>
 <br>
 <br>
-
-<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
-    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/3d_plot.html" width="1904" height="500"></iframe>
+<br>
+<br>
+<br>
+<br>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <iframe src="https://arvpinto.github.io/3D_clustering_PCA/3d_plot.html" width="1904" height="894"></iframe>
 </div>
+<br>
+<br>
 <br>
 <br>
 <br>
