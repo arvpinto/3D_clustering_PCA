@@ -6,9 +6,9 @@ $large-breakpoint: 64em !default;
 $medium-breakpoint: 42em !default;
 
 // Headers
-$header-heading-color: #000000 !default;
-$header-bg-color: #000000;
-$header-bg-color-secondary: #000000;
+$header-heading-color: #FFFFFF !default;
+$header-bg-color: #F01974;
+$header-bg-color-secondary: #6676FC;
 
 // Text
 $section-headings-color: #6676FC;
@@ -42,7 +42,7 @@ $hr-border-color: #BBBBBB !default;
   width: auto;
   height: 100%;
   padding: 0px;
-  background-image: linear-gradient(to top, #000000 0%, #000000 100%);
+  background-image: linear-gradient(to top, #FFFFFF 0%, #272727 100%);
 }
 
 .header-left {
