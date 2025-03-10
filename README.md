@@ -90,7 +90,6 @@ Top 5 closest frames for Cluster 3: [2015 2076 2050 2052 2054]
 <div align="center">
     <img src="kernel_density_plot.png">
 </div>
-<br/>
 
 A clusters.csv file is outputed with the cluster numbers that each frame corresponds to (outliers belong in the -1 cluster).
 A frames.dat is ouputed with the top 5 frames that are closest to the highest density point of each cluster.
@@ -104,7 +103,7 @@ Use the <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.p
 The <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.py" target="_blank">extract_highdens.py</a> script usage follows:
 
 <pre style="color: white; background-color: black;">
-python extract_highdens.py <xtc_file> <gro_file> <cluster_indices_file> <output_prefix>
+python extract_highdens.py &lt;xtc_file&gt; &lt;gro_file&gt; &lt;cluster_indices_file&gt; &lt;output_prefix&gt;
 </pre>
 
 
