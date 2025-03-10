@@ -11,35 +11,35 @@
 
 We start by correcting the cMD trajectory using trjconv (this assumes a truncated octahedron box, change the routine according to your box type):
 
-```js
-`# Make a *ndx selection with the region of interest for the analysis.`
-`# In this case we can use the mainchain of protein residues within 10 angstrom from the catalytic residues.`
+<pre style="color: white; background-color: black;">
+# Make a *ndx selection with the region of interest for the analysis.
+# In this case we can use the mainchain of protein residues within 10 angstrom from the catalytic residues.
 gmx make_ndx -f ref.gro -o act.ndx
 
-`# Correct the PBC of the octahedron box.`
+# Correct the PBC of the octahedron box.
 echo 1 0 | gmx trjconv -f trajectory.xtc -s ref.tpr -ur compact -pbc mol -center -o trajectory_pbc.xtc
 
-`# Fit the trajectory relative to the previously created selection.`
+# Fit the trajectory relative to the previously created selection.
 echo 27 0 | gmx trjconv -f trajectory_pbc.xtc -s ref.gro -n act.ndx -fit rot+trans -o trajectory_fit.xtc    
-```
+</pre>
 
 <br/>
 
 Then we extract the PCA vectors from the corrected trajectory:
 
-```js
-`# Covariance analysis to extract the eigenvectors from the cMD trajectory.`
+<pre style="color: white; background-color: black;">
+# Covariance analysis to extract the eigenvectors from the cMD trajectory.
 echo 27 27 | gmx covar -f trajectory_fit.xtc -s ref.gro -n act.ndx -ascii -v eigenvec.trr -last 3 
 
-`# Print the resulting PCA vectors to a pdb file.`
+# Print the resulting PCA vectors to a pdb file.
 echo 27 27 | gmx anaeig -f trajectory_fit.xtc -s ref.gro -n act.ndx -v eigenvec.trr -3d pc.pdb -last 3 
-```
+</pre>
 <br/>
 
 Clean up the pc.pdb file to include only the PCA vectors:
-```js
+<pre style="color: white; background-color: black;">
 cat pc.pdb | head -n -2 | tail -n +6 | awk '{print $6,$7,$8}' > temp && mv temp pc.pdb
-```
+</pre>
 
 <br/>
 <h2> <p align="center"> <b>II - Clustering of PCA vectors and identification of representative frames</b> </p></h2>
@@ -49,16 +49,16 @@ cat pc.pdb | head -n -2 | tail -n +6 | awk '{print $6,$7,$8}' > temp && mv temp 
 Now we run the <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" target="_blank">pca_dbscan_gmm.py</a> script to obtain the clusters and the representative frames.
 The <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" target="_blank">pca_dbscan_gmm.py</a> script has the following usage:
 
-```js
+<pre style="color: white; background-color: black;">
 python pca_dbscan_gmm.py <data_file> <eps> <min_samples> <n_components>
-```
+</pre>
 <p align="justify">The &lt;data_file&gt; should be the processed pc.pdb file, &lt;eps&gt; and &lt;min_samples&gt; define the parameters for outlier identification using the DBSCAN method, and &lt;n_components&gt; defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
 Initially try different &lt;eps&gt; and &lt;min_samples&gt; values to see which and how many frames are being identified as outliers.
 Once you have an adequate number of outliers, try different &lt;n_components&gt; values to identify which number of clusters is more suitable.
 Also take a look at the kernel density plots to see if the density distributions have a regular shape, and the identified frames lie close to highest density points. </p>
 <br/>
 
-```js
+<pre style="color: white; background-color: black;">
 Number of DBSCAN outliers: 29
 Total number of clusters (GMM): 4
 Cluster 0: 595 frames
@@ -69,7 +69,7 @@ Cluster 2: 463 frames
 Top 5 closest frames for Cluster 2: [114  69  68  64  67]
 Cluster 3: 215 frames
 Top 5 closest frames for Cluster 3: [2015 2076 2050 2052 2054]
-```
+</pre>
 <br>
 <br>
 <br>
@@ -102,9 +102,9 @@ A frames.dat is ouputed with the top 5 frames that are closest to the highest de
 Use the <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.py" target="_blank">extract_highdens.py</a> script to extract the identified frames from the trajectory.
 The <a href="https://arvpinto.github.io/3D_clustering_PCA/extract_highdens.py" target="_blank">extract_highdens.py</a> script usage follows:
 
-```js
+<pre style="color: white; background-color: black;">
 python extract_highdens.py <xtc_file> <gro_file> <cluster_indices_file> <output_prefix>
-```
+</pre>
 
 
 
