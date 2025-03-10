@@ -53,6 +53,8 @@ The <a href="https://arvpinto.github.io/3D_clustering_PCA/pca_dbscan_gmm.py" tar
 python pca_dbscan_gmm.py <data_file> <eps> <min_samples> <n_components>
 </pre>
 
+<br/>
+
 <p align="justify">The &lt;data_file&gt; should be the processed pc.pdb file, &lt;eps&gt; and &lt;min_samples&gt; define the parameters for outlier identification using the DBSCAN method, and &lt;n_components&gt; defines the number of clusters in the Gaussian Mixture Models clustering. The script produces a 3D plot of the PCA vectors, where the outliers are represented as black markers, the frames closest to the highest density points as white markers, and each cluster displays a different color. Additionally, the density distribution curves of each cluster are plotted against each PCA vector, with markers representing the identified frames.
 Initially try different &lt;eps&gt; and &lt;min_samples&gt; values to see which and how many frames are being identified as outliers.
 Once you have an adequate number of outliers, try different &lt;n_components&gt; values to identify which number of clusters is more suitable.
