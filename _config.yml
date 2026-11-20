@@ -1,0 +1,44 @@
+title: Clustering MD trajectories on their principal components
+description: Cluster an MD trajectory on the first three principal components of a chosen selection with MDAnalysis, DBSCAN and Gaussian mixture models, then extract the most representative frames of each cluster.
+author: Alexandre V. Pinto
+lang: en
+image: /assets/img/PCA_vectors.png
+
+# Shown at the top of the page. "hero" is the image next to the title
+# (a large and a small version; the original is assets/img/PCA_vectors.png).
+# The topic name and colour are the ones this
+# entry has on the home page (arvpinto.github.io, _data/categories.yml).
+topic: Molecular dynamics
+topic_color: "#4d86ff"
+tools: [MDAnalysis, scikit-learn, Python]
+hero:
+  fig: pca-clustering           # animated figure (assets/js/card-figures.js, data in assets/data/cards/)
+  src: /assets/img/hero-fig.webp
+  src_light: /assets/img/hero-fig-light.webp
+  width: 1120
+  height: 700
+  alt: Trajectory frames of chignolin as a rotating 3D cloud on the first three principal components, coloured by cluster
+
+# A single page, so there is no "sections" list: the menu on the left shows the
+# parts of the page (I, II, III) instead. It is not part of a series, so there
+# are no previous_entry / next_entry links either.
+
+# Home page (the menu bar links to its Portfolio and About sections) and this repository.
+home_url: https://arvpinto.github.io/
+home_label: Portfolio
+repo_url: https://github.com/arvpinto/3D_clustering_PCA
+
+# Name and affiliation shown under the title (same lines as on the home page).
+author_degree: PhD in Chemistry
+affiliation:
+  - High Performance Computing in Molecular Modelling Research Group, LAQV-REQUIMTE
+  - Department of Chemistry and Biochemistry, Faculty of Sciences, University of Porto
+
+# Licence named in the footer (the LICENSE file of the repository).
+license:
+  name: CC0 1.0 Universal
+  url: https://github.com/arvpinto/3D_clustering_PCA/blob/main/LICENSE
+
+# The page uses its own layout and stylesheet (no remote theme), matching the home page.
+plugins:
+  - jekyll-seo-tag
